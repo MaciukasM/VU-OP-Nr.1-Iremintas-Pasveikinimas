@@ -18,7 +18,7 @@ int main()
     {
         cout << "Iveskite tarpa tarp remelio ir vardo (nuo 0 iki 15): " << endl;
         cin >> tarpas;
-        //tikrinam ar ivestas tarpas yra skaicius
+        //tikrinam ar ivestas tarpas yra skaicius/tinka intervalui
         if (tarpas < 0 || tarpas > 15 || !cin)
         {
           cout << "Iveskite tarpa is naujo." << endl;
