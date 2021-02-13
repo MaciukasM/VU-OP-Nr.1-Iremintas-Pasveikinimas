@@ -9,7 +9,7 @@ Nuo ***v0.2*** programa išveda skirtingą pasisveikinimą, jei vartotojas įved
 
 *T.y.* jei vardas baigiasi ne "s" raide, pasisveikinimas atrodys taip: "Sveika, !".
 
-### [v1.0](https://github.com/MantasM2001/VU-OP-Nr.1-Iremintas-Pasveikinimas/releases/tag/v0.1)
+### [v1.0](https://github.com/MantasM2001/VU-OP-Nr.1-Iremintas-Pasveikinimas/releases/tag/v1.0)
 Nuo ***v1.0*** vartotojas gali pasirinkti rėmelio plotį (nuo 0 iki 15).
 
 Pvz. jei vartotojas įveda, kad tarpas būtų 2, tai pasisveikinimas atrodys taip:
