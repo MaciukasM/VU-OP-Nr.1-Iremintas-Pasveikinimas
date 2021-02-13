@@ -13,7 +13,14 @@ int main()
 
     string eil1, eil2, eil3, eil4, eil5; 
 
-    eil3 = "* Sveikas, " + vardas + "! *"; //vidurine eilute
+    char PaskRaide = vardas.back(); //randam paskutine raide
+
+    //vidurine eilute
+    if (PaskRaide == 's')
+    {
+      eil3 = "* Sveikas, " + vardas + "! *"; 
+    }
+    else eil3 = "* Sveika, " + vardas + "! *";
     
     int ilgis = eil3.length();
     string zvaigzdutes(ilgis,'*'); //padarom kintamaji, kuris susideda is atitinkamo kiekio zvaigzduciu
