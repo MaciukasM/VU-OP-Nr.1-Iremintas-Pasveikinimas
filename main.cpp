@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using std::cin;
 using std::cout;
@@ -11,33 +12,56 @@ int main()
     cout << "Iveskite savo varda:" << endl;
     cin >> vardas;
 
-    string eil1, eil2, eil3, eil4, eil5; 
+    int tarpas;
+    bool ArIvestas=0; //tikrinimui, ar ivestas tarpas yra skaicius
+    do
+    {
+        cout << "Iveskite tarpa tarp remelio ir vardo (nuo 0 iki 15): " << endl;
+        cin >> tarpas;
+        //tikrinam ar ivestas tarpas yra skaicius
+        if (tarpas < 0 || tarpas > 15 || !cin)
+        {
+          cout << "Iveskite tarpa is naujo." << endl;
+          cin.clear();
+          cin.ignore(10000, '\n'); //praleidziam netinkama ivedima
+        } 
+        else ArIvestas = 1;
+    } while (ArIvestas==0);
+
+    int eilSk = tarpas * 2 + 3; //visos vizitines korteles eiluciu skaicius
+
+    string eil[eilSk]; // eilutes saugomos masyve
 
     char PaskRaide = vardas.back(); //randam paskutine raide
+
+    string plotis(tarpas,' '); //tarpas is sonu tarp vardo ir zvaigzduciu
 
     //vidurine eilute
     if (PaskRaide == 's')
     {
-      eil3 = "* Sveikas, " + vardas + "! *"; 
+        eil[eilSk / 2] = "*" + plotis + "Sveikas, " + vardas + "!" + plotis + "*";
     }
-    else eil3 = "* Sveika, " + vardas + "! *";
-    
-    int ilgis = eil3.length();
-    string zvaigzdutes(ilgis,'*'); //padarom kintamaji, kuris susideda is atitinkamo kiekio zvaigzduciu
+    else eil[eilSk / 2] = "*" + plotis + "Sveika, " + vardas + "!" + plotis + "*";
 
-    //priskiriam ta kintamaji
-    eil1 = zvaigzdutes;
-    eil5 = zvaigzdutes;
+    int ilgis = eil[eilSk / 2].length();
+    string zvaigzdutes(ilgis, '*'); //padarom kintamaji, kuris susideda is atitinkamo kiekio zvaigzduciu
 
-    //ta pati padarom su eilutem, kurios susideda is zvaigzdutes+tarpu+zvaigzdutes
-    string tarpai(ilgis - 2, ' ');
-    eil2 = "*" + tarpai + "*";
-    eil4 = "*" + tarpai + "*";
-    
-    cout << eil1 << endl;
-    cout << eil2 << endl;
-    cout << eil3 << endl;
-    cout << eil4 << endl;
-    cout << eil5 << endl;
+    eil[0] = zvaigzdutes;
+    eil[eilSk - 1] = zvaigzdutes;
+
+    string tusciosEil(ilgis - 2, ' ');
+
+    for (int i = 1; i <= eilSk - 2; i++)
+    {
+        if (i != eilSk / 2)
+        {
+            eil[i]= "*" + tusciosEil + "*";
+        }
+    }
+
+    for (int i = 0; i < eilSk; i++)
+    {
+        cout << eil[i] << endl;
+    }
     return 0;
 }
